@@ -24,7 +24,7 @@ public class Main extends Application {
     private static final double CELL_SIZE = 25;
     private static final Random rand = new Random();
     private static final TetraminoFactory tf = new TetraminoFactory();
-    private static final List<String> tetraminoTypes = Arrays.asList("O", "O", "O", "O", "O", "O", "O");
+    private static final List<String> tetraminoTypes = Arrays.asList("O", "S", "Z", "T", "J", "L", "I");
     private static Tetramino nextTetramino = tf.getTetramino(tetraminoTypes.get(rand.nextInt(7)), WIDTH / 2, 50, CELL_SIZE);
     private static Tetramino currentTetramino;
     private static List<Tetramino> placedTetraminos = new ArrayList<>();
