@@ -7,6 +7,7 @@ import java.util.List;
 
 public class TetraminoJ extends Tetramino {
     public TetraminoJ(double x, double y,double cellSize) {
+        super();
         this.setName("J");
         this.setColor(Color.web("red"));
         List<Cell> body = new ArrayList<>();
@@ -14,5 +15,14 @@ public class TetraminoJ extends Tetramino {
         body.add(new Cell(x + cellSize/2,y + 3*cellSize/2,cellSize));
         body.add(new Cell(x + cellSize/2,y + 5*cellSize/2,cellSize));
         body.add(new Cell(x - cellSize/2,y + 5*cellSize/2,cellSize));
+        this.setCells(body);
+    }
+
+    @Override
+    public Cell getMassCentre() {
+        Cell massCentre = new Cell(getCells().get(1).getCenterX() + getCells().get(0).getSize()/2,
+                getCells().get(1).getCenterY() + getCells().get(0).getSize()/2,
+                getCells().get(0).getSize());
+        return massCentre;
     }
 }

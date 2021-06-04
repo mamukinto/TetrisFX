@@ -1,5 +1,8 @@
 package tetraminos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TetraminoFactory {
     public Tetramino getTetramino(String type,double x, double y,double cellSize) {
         switch (type) {

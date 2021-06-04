@@ -4,6 +4,7 @@ public class Cell {
     private double centerX;
     private double centerY;
     private double size;
+    private boolean taken = false;
 
     public Cell(double centerX, double centerY, double size) {
         this.centerX = centerX;
@@ -33,5 +34,13 @@ public class Cell {
 
     public void setSize(double size) {
         this.size = size;
+    }
+
+    public boolean isTaken() {
+        return taken;
+    }
+
+    public void setTaken(boolean taken) {
+        this.taken = taken;
     }
 }
