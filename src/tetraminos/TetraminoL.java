@@ -16,6 +16,9 @@ public class TetraminoL extends Tetramino {
         body.add(new Cell(x + cellSize/2,y + 5*cellSize/2,cellSize));
         body.add(new Cell(x + 3*cellSize/2,y + 5*cellSize/2,cellSize));
         this.setCells(body);
+        body.forEach(cell -> {
+            cell.setColor(getColor());
+        });
     }
 
     @Override

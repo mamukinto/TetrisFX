@@ -9,7 +9,7 @@ public class TetraminoI extends Tetramino{
     public TetraminoI(double x, double y,double cellSize) {
         super();
         this.setName("I");
-        this.setColor(Color.web("yellow"));
+        this.setColor(Color.web("cyan"));
         List<Cell> body = new ArrayList<>();
         body.add(new Cell(x + cellSize/2,y + cellSize/2,cellSize));
         body.add(new Cell(x + cellSize/2,y + 3*cellSize/2,cellSize));
@@ -21,6 +21,9 @@ public class TetraminoI extends Tetramino{
 
 
         this.setCells(body);
+        body.forEach(cell -> {
+            cell.setColor(getColor());
+        });
     }
 
     @Override

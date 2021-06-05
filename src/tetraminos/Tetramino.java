@@ -27,11 +27,8 @@ public abstract class Tetramino {
 
     public void draw(GraphicsContext g) {
         this.cells.forEach(cell -> {
-            g.setFill(this.getColor());
-            g.fillRect(cell.getCenterX() - cell.getSize()/2,cell.getCenterY() - cell.getSize()/2,cell.getSize(),cell.getSize());
-            g.setStroke(Color.web("black"));
-            g.strokeRect(cell.getCenterX() - cell.getSize()/2,cell.getCenterY() - cell.getSize()/2,cell.getSize(),cell.getSize());
-        });
+            draw(g, cell);
+            });
     }
 
 
@@ -71,11 +68,20 @@ public abstract class Tetramino {
         TetraminoFactory tf = new TetraminoFactory();
         Tetramino preview = tf.getTetramino(this.getName(),25,25,25);
         preview.getCells().forEach(cell -> {
-            g.setFill(this.getColor());
-            g.fillRect(cell.getCenterX() - cell.getSize()/2,cell.getCenterY() - cell.getSize()/2,cell.getSize(),cell.getSize());
-            g.setStroke(Color.web("black"));
-            g.strokeRect(cell.getCenterX() - cell.getSize()/2,cell.getCenterY() - cell.getSize()/2,cell.getSize(),cell.getSize());
+            draw(g, cell);
         });
+    }
+
+    private void draw(GraphicsContext g, Cell cell) {
+        g.setLineWidth(2.5);
+        g.setFill(this.getColor());
+        g.fillRect(cell.getCenterX() - cell.getSize()/2,cell.getCenterY() - cell.getSize()/2,cell.getSize(),cell.getSize());
+        g.setStroke(Color.web("white"));
+        g.strokeRect(cell.getCenterX() - cell.getSize()/2,cell.getCenterY() - cell.getSize()/2,cell.getSize(),cell.getSize());
+        g.setStroke(Color.web("black"));
+
+        g.strokeRect(cell.getCenterX() - cell.getSize()*0.5/2,cell.getCenterY() - cell.getSize()*0.5/2,cell.getSize()*0.5,cell.getSize()*0.5);
+
     }
 
     public void move() {

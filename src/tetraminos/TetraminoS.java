@@ -9,13 +9,16 @@ public class TetraminoS extends Tetramino {
     public TetraminoS(double x, double y,double cellSize) {
         super();
         this.setName("S");
-        this.setColor(Color.web("blue"));
+        this.setColor(Color.web("green"));
         List<Cell> body = new ArrayList<>();
         body.add(new Cell(x + cellSize/2,y + cellSize/2,cellSize));
         body.add(new Cell(x + 3*cellSize/2,y + cellSize/2,cellSize));
         body.add(new Cell(x + 3*cellSize/2,y - cellSize/2,cellSize));
         body.add(new Cell(x + 5*cellSize/2,y - cellSize/2,cellSize));
         this.setCells(body);
+        body.forEach(cell -> {
+            cell.setColor(getColor());
+        });
     }
 
     @Override
